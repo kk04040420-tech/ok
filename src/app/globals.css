@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+/* next-themes의 class 전략과 연동: <html class="dark"> 시 dark: 클래스 활성화 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300;
+  }
+}
