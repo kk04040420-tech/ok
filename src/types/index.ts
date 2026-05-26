@@ -13,6 +13,24 @@ export interface Skill {
   category: "frontend" | "backend" | "infra" | "etc";
 }
 
+export interface Education {
+  id: string;
+  school: string;
+  major: string;
+  degree: string;
+  period: string;
+  description?: string;
+}
+
+export interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+  techStack?: string[];
+}
+
 export interface PersonalInfo {
   name: string;
   tagline: string;
