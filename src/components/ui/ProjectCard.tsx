@@ -6,34 +6,41 @@ import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/GithubIcon";
 import { Project } from "@/types";
 
+const gradients = [
+  "from-violet-200 via-pink-200 to-rose-200",
+  "from-sky-200 via-violet-200 to-pink-200",
+  "from-emerald-200 via-teal-200 to-sky-200",
+];
+
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col"
-      whileHover={{ scale: 1.02, y: -4 }}
+      className="bg-white dark:bg-slate-800/60 rounded-2xl overflow-hidden flex flex-col border border-violet-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:shadow-violet-100 dark:hover:shadow-slate-900 transition-shadow"
+      whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
     >
-      {/* 썸네일 — 이미지 없으면 그라디언트 플레이스홀더 */}
-      <div className="h-40 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400" />
+      {/* 썸네일 — 파스텔 그라디언트 */}
+      <div className={`h-36 bg-gradient-to-br ${gradients[index % gradients.length]}`} />
 
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-2">
+        <h3 className="font-bold text-base text-gray-800 dark:text-white mb-1.5">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-1">
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-1 leading-relaxed">
           {project.description}
         </p>
 
         {/* 기술 태그 */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2 py-0.5 text-xs rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-violet-50 dark:bg-violet-900/20 text-violet-500 dark:text-violet-300 font-medium border border-violet-100 dark:border-violet-800/30"
             >
               {tech}
             </span>
@@ -41,15 +48,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         {/* 링크 버튼 */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4 pt-1 border-t border-gray-50 dark:border-slate-700/50">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-violet-500 dark:hover:text-violet-300 transition-colors font-medium"
             >
-              <GithubIcon size={16} /> GitHub
+              <GithubIcon size={14} /> GitHub
             </a>
           )}
           {project.liveUrl && (
@@ -57,9 +64,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-rose-400 dark:hover:text-rose-300 transition-colors font-medium"
             >
-              <ExternalLink size={16} /> 라이브
+              <ExternalLink size={14} /> 라이브
             </a>
           )}
         </div>

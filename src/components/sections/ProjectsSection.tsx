@@ -18,19 +18,19 @@ const cardVariants = {
 
 export function ProjectsSection() {
   return (
-    <section className="py-24 px-6 bg-gray-50 dark:bg-gray-900/50">
+    <section className="py-24 px-6 bg-white dark:bg-slate-900/40">
       <div className="max-w-5xl mx-auto">
         <SectionTitle title="Projects" subtitle="만든 것들을 소개합니다" />
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
         >
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <motion.div key={project.id} variants={cardVariants}>
-              <ProjectCard project={project} />
+              <ProjectCard project={project} index={i} />
             </motion.div>
           ))}
         </motion.div>

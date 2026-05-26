@@ -28,16 +28,16 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm"
+          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-sm shadow-violet-100 dark:shadow-slate-900"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         <a
           href="#about"
-          className="font-bold text-lg text-gray-900 dark:text-white"
+          className="font-bold text-lg text-violet-500 dark:text-violet-300"
         >
-          Portfolio
+          루스 ✦
         </a>
 
         {/* 데스크탑 메뉴 */}
@@ -46,7 +46,7 @@ export function Navbar() {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-violet-500 dark:hover:text-violet-300 transition-colors font-medium"
               >
                 {item.label}
               </a>
@@ -62,7 +62,7 @@ export function Navbar() {
           <ThemeToggle />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-violet-100 dark:hover:bg-slate-800 transition-colors"
             aria-label="메뉴 열기"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -72,14 +72,14 @@ export function Navbar() {
 
       {/* 모바일 드롭다운 메뉴 */}
       {menuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+        <div className="md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-violet-100 dark:border-slate-800">
           <ul className="px-6 py-4 flex flex-col gap-4">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
                   onClick={handleNavClick}
-                  className="block text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="block text-gray-600 dark:text-gray-300 hover:text-violet-500 dark:hover:text-violet-300 transition-colors font-medium"
                 >
                   {item.label}
                 </a>
