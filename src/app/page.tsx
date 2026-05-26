@@ -4,18 +4,24 @@ import { EducationSection } from "@/components/sections/EducationSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { getExperiences, getEducations } from "@/db/queries";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [experiences, educations] = await Promise.all([
+    getExperiences(),
+    getEducations(),
+  ]);
+
   return (
     <main>
       <section id="about">
         <HeroSection />
       </section>
       <section id="experience">
-        <ExperienceSection />
+        <ExperienceSection data={experiences} />
       </section>
       <section id="education">
-        <EducationSection />
+        <EducationSection data={educations} />
       </section>
       <section id="projects">
         <ProjectsSection />
