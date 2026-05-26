@@ -29,6 +29,37 @@ src/
 ## 자주 쓰는 명령어
 - `npm run dev` — 개발 서버 시작 (http://localhost:3000)
 - `npm run build` — 배포용 빌드
+- `npm run db:generate` — 스키마 변경 후 마이그레이션 파일 생성
+- `npm run db:migrate` — 마이그레이션 Supabase에 반영 (`.env.local` 로드 필요)
+- `npm run db:studio` — Drizzle Studio GUI 실행
+
+## DB 작업 지침
+DB 작업 시 반드시 아래 파일들을 먼저 참고하세요.
+
+- **ERD**: `docs/db/erd.md` — 테이블 구조 및 관계 다이어그램
+- **SQL**: `docs/db/migrations.sql` — 수동 실행용 SQL (Supabase SQL Editor에서 사용)
+- **Drizzle 스키마**: `src/db/schema.ts` — 실제 코드에서 사용하는 테이블 정의
+- **DB 클라이언트**: `src/db/index.ts` — `db` 객체 import해서 사용
+
+### 스키마 변경 절차
+1. `src/db/schema.ts` 수정
+2. `docs/db/erd.md` ERD 업데이트
+3. `docs/db/migrations.sql` 에 변경 SQL 추가
+4. `npm run db:generate` → `npm run db:migrate` 실행
+
+### DB 쿼리 방법
+```ts
+// 서버 컴포넌트에서
+import { db } from "@/db";
+import { experiences, experienceTechStack } from "@/db/schema";
+
+const data = await db.select().from(experiences).orderBy(experiences.sortOrder);
+```
+
+### 마이그레이션 실행 방법 (env 로드)
+```bash
+export $(grep -v '^#' .env.local | xargs) && npm run db:migrate
+```
 
 ## 콘텐츠 수정 방법
 - 개인 정보 (이름, 소개, 이메일, GitHub): `src/data/personal.ts`
