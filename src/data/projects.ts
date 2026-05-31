@@ -7,6 +7,7 @@ export const projects: Project[] = [
     description: "서울경제신문에 연재 중인 테크 시리즈 칼럼입니다.",
     techStack: ["시리즈"],
     liveUrl: "https://m.search.naver.com/search.naver?nso=&query=%EC%9C%A0%EB%B8%8C%EA%B0%93%ED%85%8C%ED%81%AC+site%3Awww.sedaily.com&qvt=0&sm=mtb_pge&ssc=tab.m.all",
+    imageUrl: "/series-yubrgatech.jpg",
   },
   {
     id: "kakao-compliance-1",
