@@ -2,12 +2,12 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
-    id: "book-1",
-    title: "도시를 짓는 사람들",
-    description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
-    techStack: ["공저"],
-    liveUrl: "https://product.kyobobook.co.kr/detail/S000000478583",
-    imageUrl: "/book-city-builders.jpg",
+    id: "kakao-compliance-1",
+    title: "카카오 준법과신뢰위원회 연간보고서",
+    description: "카카오 준법과신뢰위원회 연간보고서 작성에 참여하였습니다.",
+    techStack: ["보고서"],
+    liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
+    imageUrl: "/kakao-compliance.jpg",
   },
   {
     id: "series-1",
@@ -18,12 +18,12 @@ export const projects: Project[] = [
     imageUrl: "/series-yubrgatech.jpg",
   },
   {
-    id: "kakao-compliance-1",
-    title: "카카오 준법과신뢰위원회 연간보고서",
-    description: "카카오 준법과신뢰위원회 연간보고서 작성에 참여하였습니다.",
-    techStack: ["보고서"],
-    liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
-    imageUrl: "/kakao-compliance.jpg",
+    id: "book-1",
+    title: "도시를 짓는 사람들",
+    description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
+    techStack: ["공저"],
+    liveUrl: "https://product.kyobobook.co.kr/detail/S000000478583",
+    imageUrl: "/book-city-builders.jpg",
   },
   {
     id: "project-1",
