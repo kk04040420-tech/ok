@@ -81,6 +81,8 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 ? "교보문고에서 보기"
                 : project.liveUrl.includes("kakaocompliance")
                 ? "보고서 보기"
+                : project.liveUrl.includes("naver.com")
+                ? "시리즈 보기"
                 : "라이브"}
             </a>
           )}
