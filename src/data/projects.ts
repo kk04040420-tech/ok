@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "kakao-compliance-1",
     title: "카카오 준법과신뢰위원회 연간보고서",
-    description: "카카오 준법과신뢰위원회 연간보고서 작성에 참여하였습니다.",
+    description: "카카오 준법과신뢰위원회의 활동을 담은 보고서입니다.",
     techStack: ["보고서"],
     liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
     imageUrl: "/kakao-compliance.jpg",
