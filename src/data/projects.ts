@@ -7,6 +7,7 @@ export const projects: Project[] = [
     description: "카카오 준법과신뢰위원회 연간보고서 작성에 참여하였습니다.",
     techStack: ["보고서"],
     liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
+    imageUrl: "/kakao-compliance.jpg",
   },
   {
     id: "book-1",
