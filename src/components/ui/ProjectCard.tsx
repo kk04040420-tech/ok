@@ -77,7 +77,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-rose-400 dark:hover:text-rose-300 transition-colors font-medium"
             >
               <ExternalLink size={14} />
-              {project.liveUrl.includes("kyobobook") ? "교보문고에서 보기" : "라이브"}
+              {project.liveUrl.includes("kyobobook")
+                ? "교보문고에서 보기"
+                : project.liveUrl.includes("kakaocompliance")
+                ? "보고서 보기"
+                : "라이브"}
             </a>
           )}
         </div>

@@ -2,6 +2,13 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "kakao-compliance-1",
+    title: "카카오 준법과신뢰위원회 연간보고서",
+    description: "카카오 준법과신뢰위원회 연간보고서 작성에 참여하였습니다.",
+    techStack: ["보고서"],
+    liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
+  },
+  {
     id: "book-1",
     title: "도시를 짓는 사람들",
     description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
