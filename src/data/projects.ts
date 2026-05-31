@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: "book-1",
     title: "도시를 짓는 사람들",
     description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
-    techStack: ["공저"],
+    techStack: ["서적"],
     liveUrl: "https://product.kyobobook.co.kr/detail/S000000478583",
     imageUrl: "/book-city-builders.jpg",
   },
