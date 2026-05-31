@@ -2,6 +2,14 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "book-1",
+    title: "도시를 짓는 사람들",
+    description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
+    techStack: ["공저"],
+    liveUrl: "https://product.kyobobook.co.kr/detail/S000000478583",
+    imageUrl: "/book-city-builders.jpg",
+  },
+  {
     id: "series-1",
     title: "권경원의 유브갓테크",
     description: "서울경제신문에 연재 중인 테크 시리즈 칼럼입니다.",
@@ -16,14 +24,6 @@ export const projects: Project[] = [
     techStack: ["보고서"],
     liveUrl: "https://www.kakaocompliance.com/contents/reference_view.html?seq=5956",
     imageUrl: "/kakao-compliance.jpg",
-  },
-  {
-    id: "book-1",
-    title: "도시를 짓는 사람들",
-    description: "공저. 도시와 공간을 만드는 사람들의 이야기를 담은 책입니다.",
-    techStack: ["공저"],
-    liveUrl: "https://product.kyobobook.co.kr/detail/S000000478583",
-    imageUrl: "/book-city-builders.jpg",
   },
   {
     id: "project-1",
