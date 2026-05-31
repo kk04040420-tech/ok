@@ -1,6 +1,7 @@
 "use client";
 
 // 프로젝트 카드 컴포넌트
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/ui/GithubIcon";
@@ -24,8 +25,17 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
     >
-      {/* 썸네일 — 파스텔 그라디언트 */}
-      <div className={`h-36 bg-gradient-to-br ${gradients[index % gradients.length]}`} />
+      {/* 썸네일 — imageUrl 있으면 이미지, 없으면 파스텔 그라디언트 */}
+      <div className={`h-36 relative overflow-hidden ${!project.imageUrl ? `bg-gradient-to-br ${gradients[index % gradients.length]}` : "bg-gray-100 dark:bg-slate-700"}`}>
+        {project.imageUrl && (
+          <Image
+            src={project.imageUrl}
+            alt={project.title}
+            fill
+            className="object-cover object-top"
+          />
+        )}
+      </div>
 
       <div className="p-5 flex flex-col flex-1">
         <h3 className="font-bold text-base text-gray-800 dark:text-white mb-1.5">
