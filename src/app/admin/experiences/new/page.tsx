@@ -1,5 +1,6 @@
 import { createExperienceAction } from "@/app/actions/experiences";
 import { FormField, TextAreaField } from "@/components/ui/FormField";
+import { YearMonthInput } from "@/components/ui/YearMonthInput";
 import Link from "next/link";
 
 export default function NewExperiencePage() {
@@ -12,8 +13,8 @@ export default function NewExperiencePage() {
           <FormField label="직함" name="role" required placeholder="Frontend Developer" />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <FormField label="입사일" name="startDate" type="date" required />
-          <FormField label="퇴사일" name="endDate" type="date" hint="재직 중이면 비워두세요" />
+          <YearMonthInput label="입사일" name="startDate" required />
+          <YearMonthInput label="퇴사일" name="endDate" hint="재직 중이면 비워두세요" />
         </div>
         <TextAreaField
           label="업무 설명"

@@ -1,5 +1,6 @@
 import { createEducationAction } from "@/app/actions/educations";
 import { FormField, TextAreaField } from "@/components/ui/FormField";
+import { YearMonthInput } from "@/components/ui/YearMonthInput";
 import Link from "next/link";
 
 export default function NewEducationPage() {
@@ -13,8 +14,8 @@ export default function NewEducationPage() {
           <FormField label="학위" name="degree" required placeholder="학사" />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <FormField label="입학일" name="startDate" type="date" required />
-          <FormField label="졸업일" name="endDate" type="date" hint="재학 중이면 비워두세요" />
+          <YearMonthInput label="입학일" name="startDate" required />
+          <YearMonthInput label="졸업일" name="endDate" hint="재학 중이면 비워두세요" />
         </div>
         <TextAreaField
           label="설명"

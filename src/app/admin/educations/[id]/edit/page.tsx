@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getEducationById } from "@/db/queries";
 import { updateEducationAction } from "@/app/actions/educations";
 import { FormField, TextAreaField } from "@/components/ui/FormField";
+import { YearMonthInput } from "@/components/ui/YearMonthInput";
 
 export default async function EditEducationPage({
   params,
@@ -25,15 +26,10 @@ export default async function EditEducationPage({
           <FormField label="학위" name="degree" required defaultValue={edu.degree} />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <FormField label="입학일" name="startDate" type="date" required defaultValue={edu.startDate} />
-          <FormField label="졸업일" name="endDate" type="date" defaultValue={edu.endDate ?? ""} hint="재학 중이면 비워두세요" />
+          <YearMonthInput label="입학일" name="startDate" required defaultValue={edu.startDate} />
+          <YearMonthInput label="졸업일" name="endDate" defaultValue={edu.endDate} hint="재학 중이면 비워두세요" />
         </div>
-        <TextAreaField
-          label="설명"
-          name="description"
-          defaultValue={edu.description ?? ""}
-          rows={3}
-        />
+        <TextAreaField label="설명" name="description" defaultValue={edu.description ?? ""} rows={3} />
         <FormField label="정렬 순서" name="sortOrder" type="number" defaultValue={String(edu.sortOrder)} />
 
         <div className="flex gap-3 pt-2">
