@@ -6,6 +6,9 @@ import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { getExperiences, getEducations } from "@/db/queries";
 
+// 빌드 시점이 아닌 요청 시점에 DB 조회
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [experiences, educations] = await Promise.all([
     getExperiences(),
