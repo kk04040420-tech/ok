@@ -33,6 +33,19 @@ src/
 - `npm run db:migrate` — 마이그레이션 Supabase에 반영 (`.env.local` 로드 필요)
 - `npm run db:studio` — Drizzle Studio GUI 실행
 
+## API 연동 지침
+API 연동 작업 시 반드시 `docs/api/` 폴더의 스펙 파일을 먼저 참고하세요.
+
+- **스펙 파일 위치**: `docs/api/{api-name}-spec.md`
+- 엔드포인트, 요청 파라미터, 응답 스키마, 에러 코드, Rate Limit을 스펙 파일 기준으로 구현하세요.
+- 새 API를 연동할 때는 구현 전에 스펙 파일을 먼저 작성하세요.
+- API 키는 반드시 `.env.local`에 저장하고 코드에 하드코딩하지 마세요.
+
+### 현재 연동된 API
+| API | 스펙 파일 | 설명 |
+|---|---|---|
+| JSearch (RapidAPI) | `docs/api/job-spec.md` | 채용 공고 검색 |
+
 ## DB 작업 지침
 DB 작업 시 반드시 아래 파일들을 먼저 참고하세요.
 

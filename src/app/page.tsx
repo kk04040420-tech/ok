@@ -4,15 +4,18 @@ import { EducationSection } from "@/components/sections/EducationSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { JobsSection } from "@/components/sections/JobsSection";
 import { getExperiences, getEducations } from "@/db/queries";
+import { fetchJobs } from "@/lib/jobs";
 
 // 빌드 시점이 아닌 요청 시점에 DB 조회
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [experiences, educations] = await Promise.all([
+  const [experiences, educations, jobs] = await Promise.all([
     getExperiences(),
     getEducations(),
+    fetchJobs({ query: "developer", country: "us", date_posted: "week" }),
   ]);
 
   return (
@@ -34,6 +37,9 @@ export default async function HomePage() {
       </section>
       <section id="contact">
         <ContactSection />
+      </section>
+      <section id="jobs">
+        <JobsSection jobs={jobs} />
       </section>
     </main>
   );
