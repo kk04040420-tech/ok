@@ -6,10 +6,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 4.5rem;
   }
 
   body {
-    @apply bg-violet-50 text-gray-800 dark:bg-slate-950 dark:text-gray-100 transition-colors duration-300;
+    @apply bg-zinc-50 text-gray-900 dark:bg-[#09090f] dark:text-slate-100 transition-colors duration-300;
+  }
+
+  ::selection {
+    @apply bg-violet-500/30 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-zinc-300 dark:bg-slate-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-violet-400;
   }
 }

@@ -6,14 +6,16 @@ interface SectionTitleProps {
 
 export function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+    <div>
+      {subtitle && (
+        <p className="font-mono text-xs tracking-[0.18em] uppercase text-violet-500 dark:text-violet-400 mb-2.5">
+          // {subtitle}
+        </p>
+      )}
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
         {title}
       </h2>
-      {subtitle && (
-        <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">{subtitle}</p>
-      )}
-      <div className="mt-4 mx-auto w-10 h-1 bg-gradient-to-r from-violet-300 to-pink-300 rounded-full" />
+      <div className="mt-3 h-px w-12 bg-gradient-to-r from-violet-500 to-pink-500 rounded-full" />
     </div>
   );
 }

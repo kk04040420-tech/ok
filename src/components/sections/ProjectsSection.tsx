@@ -8,21 +8,23 @@ import { projects } from "@/data/projects";
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
 export function ProjectsSection() {
   return (
-    <section className="py-24 px-6 bg-white dark:bg-slate-900/40">
+    <section className="py-28 px-6 bg-white dark:bg-[#0d0d18]">
       <div className="max-w-5xl mx-auto">
-        <SectionTitle title="Projects" subtitle="만든 것들을 소개합니다" />
+        <div className="mb-16">
+          <SectionTitle title="Projects" subtitle="만든 것들" />
+        </div>
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

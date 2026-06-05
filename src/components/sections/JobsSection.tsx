@@ -12,11 +12,11 @@ interface JobsSectionProps {
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 28 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
@@ -24,14 +24,13 @@ export function JobsSection({ jobs }: JobsSectionProps) {
   if (jobs.length === 0) return null;
 
   return (
-    <section className="py-24 px-6 bg-slate-50/60 dark:bg-slate-900/60">
+    <section className="py-28 px-6 bg-white dark:bg-[#0d0d18]">
       <div className="max-w-5xl mx-auto">
-        <SectionTitle
-          title="Jobs"
-          subtitle="현재 채용 중인 공고들을 살펴보세요"
-        />
+        <div className="mb-16">
+          <SectionTitle title="Jobs" subtitle="채용 공고" />
+        </div>
         <motion.div
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

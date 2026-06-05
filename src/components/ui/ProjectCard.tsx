@@ -8,9 +8,21 @@ import { GithubIcon } from "@/components/ui/GithubIcon";
 import { Project } from "@/types";
 
 const gradients = [
-  "from-violet-200 via-pink-200 to-rose-200",
-  "from-sky-200 via-violet-200 to-pink-200",
-  "from-emerald-200 via-teal-200 to-sky-200",
+  "from-violet-600/20 via-violet-500/10 to-transparent",
+  "from-pink-600/20 via-pink-500/10 to-transparent",
+  "from-cyan-600/20 via-cyan-500/10 to-transparent",
+];
+
+const gradientsBorder = [
+  "border-violet-200 dark:border-violet-500/20",
+  "border-pink-200 dark:border-pink-500/20",
+  "border-cyan-200 dark:border-cyan-500/20",
+];
+
+const gradientsDot = [
+  "bg-violet-500",
+  "bg-pink-500",
+  "bg-cyan-500",
 ];
 
 interface ProjectCardProps {
@@ -19,29 +31,37 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+  const gradient = gradients[index % gradients.length];
+  const borderAccent = gradientsBorder[index % gradientsBorder.length];
+  const dot = gradientsDot[index % gradientsDot.length];
+
   return (
     <motion.div
-      className="bg-white dark:bg-slate-800/60 rounded-2xl overflow-hidden flex flex-col border border-violet-100 dark:border-slate-700/50 shadow-sm hover:shadow-md hover:shadow-violet-100 dark:hover:shadow-slate-900 transition-shadow"
-      whileHover={{ y: -4 }}
+      className={`bg-white dark:bg-[#13131f] rounded-2xl overflow-hidden flex flex-col border border-zinc-100 dark:border-white/[0.07] hover:border-zinc-200 dark:hover:border-white/[0.12] shadow-sm hover:shadow-md transition-all ${borderAccent.split(" ")[0]} dark:${borderAccent.split(" ")[1]}`}
+      whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
     >
-      {/* 썸네일 — imageUrl 있으면 이미지, 없으면 파스텔 그라디언트 */}
-      <div className={`h-36 relative overflow-hidden ${!project.imageUrl ? `bg-gradient-to-br ${gradients[index % gradients.length]}` : "bg-gray-100 dark:bg-slate-700"}`}>
-        {project.imageUrl && (
+      {/* 썸네일 헤더 */}
+      <div className={`h-36 relative overflow-hidden ${project.imageUrl ? "bg-zinc-100 dark:bg-[#09090f]" : `bg-gradient-to-br ${gradient} dark:${gradient}`}`}>
+        {project.imageUrl ? (
           <Image
             src={project.imageUrl}
             alt={project.title}
             fill
             className="object-cover object-top"
           />
+        ) : (
+          <div className="absolute inset-0 flex items-end p-4">
+            <div className={`w-2 h-2 rounded-full ${dot} opacity-60`} />
+          </div>
         )}
       </div>
 
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-base text-gray-800 dark:text-white mb-1.5">
+        <h3 className="font-bold text-base text-gray-900 dark:text-white mb-1.5 tracking-tight">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-1 leading-relaxed">
+        <p className="text-sm text-gray-500 dark:text-slate-400 mb-4 flex-1 leading-relaxed">
           {project.description}
         </p>
 
@@ -50,7 +70,7 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.techStack.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-0.5 text-xs rounded-full bg-violet-50 dark:bg-violet-900/20 text-violet-500 dark:text-violet-300 font-medium border border-violet-100 dark:border-violet-800/30"
+              className="px-2.5 py-0.5 text-xs rounded-full bg-zinc-100 dark:bg-[#09090f] text-gray-600 dark:text-slate-400 border border-zinc-200 dark:border-white/[0.07] font-medium"
             >
               {tech}
             </span>
@@ -58,15 +78,15 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
 
         {/* 링크 버튼 */}
-        <div className="flex items-center gap-4 pt-1 border-t border-gray-50 dark:border-slate-700/50">
+        <div className="flex items-center gap-4 pt-3 border-t border-zinc-100 dark:border-white/[0.06]">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-violet-500 dark:hover:text-violet-300 transition-colors font-medium"
+              className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors font-medium"
             >
-              <GithubIcon size={14} /> GitHub
+              <GithubIcon size={13} /> GitHub
             </a>
           )}
           {project.liveUrl && (
@@ -74,11 +94,11 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-rose-400 dark:hover:text-rose-300 transition-colors font-medium"
+              className="flex items-center gap-1.5 text-xs text-gray-400 dark:text-slate-500 hover:text-pink-500 dark:hover:text-pink-400 transition-colors font-medium"
             >
-              <ExternalLink size={14} />
+              <ExternalLink size={13} />
               {project.liveUrl.includes("kyobobook")
-                ? "교보문고에서 보기"
+                ? "교보문고"
                 : project.liveUrl.includes("kakaocompliance")
                 ? "보고서 보기"
                 : project.liveUrl.includes("naver.com")

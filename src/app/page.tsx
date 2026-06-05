@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { JobsSection } from "@/components/sections/JobsSection";
 import { getExperiences, getEducations } from "@/db/queries";
@@ -31,9 +30,6 @@ export default async function HomePage() {
       </section>
       <section id="projects">
         <ProjectsSection />
-      </section>
-      <section id="skills">
-        <SkillsSection />
       </section>
       <section id="contact">
         <ContactSection />
